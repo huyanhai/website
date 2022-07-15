@@ -6,7 +6,7 @@
         <div class="text-box animate__animated animate__fadeInDown animate__delay-1">
           <b class="tell">联系电话：023-6666 8888</b>
           <p class="address">地址：重庆市 渝北区 黄山大道中段7号（中国进出口银行8楼）</p>
-          <button class="btn"></button>
+          <button class="btn" @click="showMap = true"></button>
         </div>
       </div>
       <div class="more-card animate__animated animate__fadeInDown animate__delay-2">
@@ -39,11 +39,16 @@
       </div>
     </div>
     <user-footer />
+    <b-map v-if="showMap" />
   </div>
 </template>
 <script setup>
+import BMap from "@/components/Map.vue";
 import UserFooter from "@/components/Footer.vue";
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
+
+const showMap = ref(false);
+
 onMounted(() => {
   var wow = new WOW({
     boxClass: "wow", // animated element css class (default is wow)
