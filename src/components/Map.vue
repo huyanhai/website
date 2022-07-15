@@ -1,10 +1,19 @@
 <template>
   <div class="layer">
-    <div id="allmap" class="map"></div>
+    <div id="allmap" class="map" ref="target"></div>
   </div>
 </template>
 <script setup>
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
+import { onClickOutside } from "@vueuse/core";
+
+const target = ref(null);
+const emit = defineEmits(["close"]);
+
+onClickOutside(target, (event) => {
+  emit("close");
+});
+
 const center = [106.51073, 29.619065];
 const zoom = 20;
 
@@ -22,13 +31,14 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .layer {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   background: rgba($color: #000000, $alpha: 0.8);
   left: 0;
   top: 0;
   overflow: hidden;
+  z-index: 1000;
 }
 .map {
   width: 1200px;
