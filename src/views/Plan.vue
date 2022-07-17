@@ -1,8 +1,8 @@
 <template>
   <div class="plan">
-    <swiper :direction="'vertical'" class="swiper-box" :mousewheel="true" :modules="[Mousewheel]" v-on:slide-change="onSlideChange">
+    <swiper @init="load" :direction="'vertical'" class="swiper-box" :mousewheel="true" :modules="[Mousewheel]" v-on:slide-change="onSlideChange">
       <swiper-slide>
-        <div class="container">
+        <div class="container" v-if="swiperIndex === 0">
           <div class="step1">
             <h3 class="title animate__animated animate__fadeInDown">“微生素”小微金融生命体系</h3>
             <div class="box">
@@ -15,17 +15,13 @@
                 <span class="t t4 animate__animated a-icon3 animate__delay-1-4">数字化小微智<br />能创新体系</span>
                 <span class="t t5 animate__animated a-icon3 animate__delay-1-5">数据信贷的风险识<br />别与量化风控体系</span>
               </div>
-              <div class="scroll animate__animated animate__fadeInDown animate__infinite" style="animation-duration: 2s">
-                <img src="@/assets/plan-scroll.png" alt="" srcset="" />
-                <p>向下滑动</p>
-              </div>
             </div>
           </div>
         </div>
       </swiper-slide>
       <swiper-slide>
-        <div class="container">
-          <!-- <div class="step2 wow animate__animated animate__fadeInDown">
+        <div class="container" v-if="swiperIndex === 1">
+          <div class="step2 animate__animated animate__fadeInDown">
             <h3 class="title">“毕昇”数字小微赋能平台</h3>
             <div class="items">
               <div class="item" v-for="(item, index) in list" :key="index">
@@ -34,27 +30,27 @@
                 <p>{{ item.desc }}</p>
               </div>
             </div>
-          </div> -->
-          <div class="step3">
-            <h3 class="title wow animate__animated animate__fadeInDown">小微中台业务驱动与管理</h3>
-            <!-- <div class="items">
-              <img class="wow animate__animated animate__zoomIn" src="@/assets/plan-s3-1.png" data-wow-delay="0.5s" alt="" srcset="" />
-              <span class="t wow t1 animate__animated animate__fadeInDown6" data-wow-delay="1.5s">小微产品运营<br />监控管理</span>
-              <span class="t wow t2 animate__animated animate__fadeInDown6" data-wow-delay="2s">小微产品设计<br />定义与管理</span>
-              <span class="t wow t3 animate__animated animate__fadeInDown6" data-wow-delay="2.5s">小微客户<br />分析与管理</span>
-              <span class="t wow t4 animate__animated animate__fadeInDown6" data-wow-delay="3s">营销管理，决策审核<br />与审批(含自动决策)，<br />贷后管理</span>
-            </div> -->
+          </div>
+          <div class="step3 animate__animated animate__fadeInDown animate__delay-1">
+            <h3 class="title">小微中台业务驱动与管理</h3>
+            <div class="items">
+              <img class="animate__animated animate__zoomIn animate__delay-2" src="@/assets/plan-s3-1.png" alt="" srcset="" />
+              <span class="t t1 animate__animated animate__fadeInDown6 animate__delay-2-1">小微产品<br />运营监控<br />管理</span>
+              <span class="t t2 animate__animated animate__fadeInDown6 animate__delay-2-2">小微产品<br />设计定义<br />与管理</span>
+              <span class="t t3 animate__animated animate__fadeInDown6 animate__delay-2-3">小微客户<br />分析与管理</span>
+              <span class="t t4 animate__animated animate__fadeInDown6 animate__delay-2-4">营销管理<br />决策审核<br />与审批(含自动决策)<br />贷后管理</span>
+            </div>
           </div>
         </div>
       </swiper-slide>
       <swiper-slide>
-        <div class="container">
-          <div class="step4">
-            <h3 class="title wow animate__animated animate__fadeInDown">“Cornerstone·基石”业务</h3>
+        <div class="container" v-if="swiperIndex === 2">
+          <div class="step4 animate__animated animate__fadeInDown">
+            <h3 class="title">“Cornerstone·基石”业务</h3>
             <div class="box">
-              <img class="s1 animate__animated animate__zoomIn" data-wow-delay="0.5s" src="@/assets/plan-s4-1.png" alt="" />
-              <img class="s2 a-icon1" src="@/assets/plan-s4-2.png" data-wow-delay="1s" alt="" />
-              <div class="icon animate__animated animate__fadeInDown6" :data-wow-delay="`${1.5 + index * 0.1}s`" :class="'i' + (index + 1)" v-for="(item, index) in list1" :key="index">
+              <img class="s1 animate__animated animate__zoomIn animate__delay-1" src="@/assets/plan-s4-1.png" alt="" />
+              <img class="s2 a-icon1 animate__delay-1" src="@/assets/plan-s4-2.png" alt="" />
+              <div class="icon animate__animated animate__fadeInDown6" :class="['animate__delay-2-' + (index + 1), 'i' + (index + 1)]" v-for="(item, index) in list1" :key="index">
                 <img :src="item.icon" />
                 <p>{{ item.text }}</p>
               </div>
@@ -64,6 +60,10 @@
         <user-footer />
       </swiper-slide>
     </swiper>
+    <div class="scroll animate__animated animate__fadeInDown animate__infinite" style="animation-duration: 2s" v-if="swiperIndex < 2">
+      <img src="@/assets/plan-scroll.png" alt="" srcset="" />
+      <p>向下滑动</p>
+    </div>
   </div>
 </template>
 <script setup>
@@ -125,16 +125,20 @@ const list1 = ref([
   },
 ]);
 
+const swiperDom = ref({});
+const swiperIndex = ref(0);
+
+const load = (e) => {
+  swiperDom.value = e;
+  swiperIndex.value = swiperDom.value?.activeIndex;
+};
+
 const onSlideChange = () => {
-  console.log("change");
+  swiperIndex.value = swiperDom.value?.activeIndex;
 };
 </script>
 
 <style lang="scss" scoped>
-.swiper-box {
-  width: 100%;
-  height: 100%;
-}
 .a-icon {
   animation: animal 10s infinite linear;
   -webkit-transform-origin: center center;
@@ -153,11 +157,34 @@ const onSlideChange = () => {
   animation-name: animal3;
 }
 
+.scroll {
+  width: 35px;
+  margin: 0 auto 0 auto;
+  position: absolute;
+  z-index: 100;
+  bottom: 20px;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: -17.5px;
+  img {
+    width: 100%;
+  }
+  p {
+    font-size: 12px;
+    color: #fff;
+    display: block;
+    width: 50px;
+  }
+}
+
 .plan {
   background: url("@/assets/plan-bg.png") no-repeat #0054ff;
   background-size: cover;
   width: 100%;
   height: 100%;
+  position: relative;
   .container {
     .step1 {
       padding-top: 160px;
@@ -175,8 +202,8 @@ const onSlideChange = () => {
           height: 446px;
           margin: 0 auto;
           .r {
-            width: 458px;
-            height: 458px;
+            width: 460px;
+            height: 460px;
           }
           .s {
             width: 246px;
@@ -216,38 +243,21 @@ const onSlideChange = () => {
             }
           }
         }
-        .scroll {
-          width: 35px;
-          margin: 83px auto 90px auto;
-          position: relative;
-          img {
-            width: 100%;
-          }
-          p {
-            font-size: 12px;
-            color: #fff;
-            position: absolute;
-            display: block;
-            width: 50px;
-            left: 50%;
-            transform: translate(-50%);
-          }
-        }
       }
     }
     .step2 {
       max-width: 1200px;
-      margin: 0 auto;
-      height: 386px;
+      margin: 82px auto 50px auto;
+      height: 235px;
       text-align: center;
       background: rgba($color: #fff, $alpha: 0.9);
       backdrop-filter: blur(7px);
       box-shadow: 0 3px 12px rgba($color: #000, $alpha: 0.16);
       .title {
         color: #2777ff;
-        font-size: 32px;
-        margin-bottom: 70px;
-        padding-top: 70px;
+        font-size: 28px;
+        margin-bottom: 26px;
+        padding-top: 42px;
       }
       .items {
         display: flex;
@@ -259,16 +269,16 @@ const onSlideChange = () => {
           flex-direction: column;
           align-items: center;
           img {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 16px;
+            width: 44px;
+            height: 44px;
+            margin-bottom: 8px;
           }
           span {
             color: #333333;
-            font-size: 24px;
+            font-size: 20px;
           }
           p {
-            font-size: 12px;
+            font-size: 10px;
             color: #999999;
           }
         }
@@ -276,21 +286,21 @@ const onSlideChange = () => {
     }
     .step3 {
       max-width: 1200px;
-      margin: 80px auto;
-      height: 640px;
+      margin: 0 auto;
+      height: 467px;
       text-align: center;
       background: rgba($color: #fff, $alpha: 0.9);
       backdrop-filter: blur(7px);
       box-shadow: 0 3px 12px rgba($color: #000, $alpha: 0.16);
       .title {
         color: #2777ff;
-        font-size: 32px;
-        margin-bottom: 70px;
-        padding-top: 70px;
+        font-size: 28px;
+        margin-bottom: 36px;
+        padding-top: 42px;
       }
       .items {
-        width: 1035px;
-        height: 379px;
+        width: 823px;
+        height: 301px;
         margin: 0 auto;
         position: relative;
         img {
@@ -300,23 +310,23 @@ const onSlideChange = () => {
           position: absolute;
           font-size: 18px;
           &.t1 {
-            left: 34px;
-            top: 140px;
+            left: 33px;
+            top: 91px;
             color: #755ff9;
           }
           &.t2 {
-            left: 308px;
-            top: 254px;
+            left: 248px;
+            top: 186px;
             color: #4e72ff;
           }
           &.t3 {
-            top: 86px;
-            left: 566px;
+            top: 66px;
+            left: 440px;
             color: #0cd7ff;
           }
           &.t4 {
-            right: 42px;
-            top: 193px;
+            right: 25px;
+            top: 132px;
             color: #22d9fe;
           }
         }
@@ -325,63 +335,63 @@ const onSlideChange = () => {
     .step4 {
       max-width: 1200px;
       margin: 80px auto;
-      height: 740px;
+      height: 574px;
       text-align: center;
       background: rgba($color: #fff, $alpha: 0.9);
       backdrop-filter: blur(12px);
       box-shadow: 0 3px 12px rgba($color: #000, $alpha: 0.16);
       .title {
         color: #2777ff;
-        font-size: 32px;
-        margin-bottom: 177px;
-        padding-top: 107px;
+        font-size: 28px;
+        margin-bottom: 36px;
+        padding-top: 42px;
       }
       .box {
         position: relative;
-        width: 957px;
-        height: 248px;
-        margin: 0 auto;
+        width: 829px;
+        height: 214px;
+        margin: 120px auto 0 auto;
         .s1 {
           width: 100%;
         }
         .s2 {
           position: absolute;
-          width: 704px;
-          height: 262px;
+          width: 650px;
+          height: 242px;
           left: 50%;
-          margin-left: -352px;
+          margin-left: -325px;
           top: -60px;
           opacity: 0;
         }
         .icon {
           position: absolute;
           img {
-            width: 84px;
-            height: 88px;
+            width: 62px;
+            height: 62px;
           }
           p {
             color: #666666;
-            font-size: 22px;
+            font-size: 18px;
           }
           &.i1 {
-            top: -100px;
-            left: 175px;
+            top: -84px;
+            left: 144px;
           }
           &.i2 {
-            top: -100px;
-            right: 181px;
+            top: -84px;
+            right: 148px;
           }
           &.i3 {
-            top: 93px;
-            right: 40px;
+            top: 100px;
+            right: 20px;
           }
           &.i4 {
-            top: 200px;
+            top: 180px;
             left: 45%;
           }
           &.i5 {
-            top: 105px;
-            left: 50px;
+            top: 100px;
+            left: 20px;
           }
         }
       }

@@ -1,5 +1,10 @@
 <script setup>
 import UserHeader from "@/components/Header.vue";
+import { provide, ref } from "vue";
+
+const headerActive = ref(false);
+
+provide("headerActive", headerActive);
 </script>
 
 <template>
@@ -50,6 +55,9 @@ import UserHeader from "@/components/Header.vue";
 }
 .animate__delay-2-4 {
   animation-delay: 2.4s !important;
+}
+.animate__delay-2-5 {
+  animation-delay: 2.5s !important;
 }
 
 .animate__delay-3 {
@@ -122,6 +130,11 @@ body {
   &::-webkit-scrollbar {
     display: none; /* Chrome Safari */
   }
+}
+
+.swiper-box {
+  width: 100%;
+  height: 100%;
 }
 
 li {

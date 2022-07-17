@@ -1,5 +1,5 @@
 <template>
-  <header class="header" :style="{ background: `rgba(0, 84, 255, ${y * 0.01})` }">
+  <header class="header" :class="headerActive ? 'active' : ''">
     <main class="main">
       <a class="logo">
         <img src="@/assets/logo.png" alt="" srcset="" />
@@ -24,7 +24,7 @@
   </header>
 </template>
 <script setup>
-import { watch, ref, onMounted } from "vue";
+import { watch, ref, inject } from "vue";
 import { useRouter } from "vue-router";
 import { useWindowScroll } from "@vueuse/core";
 const links = ref([
@@ -60,6 +60,7 @@ const area = ref();
 
 const router = useRouter();
 const { x, y } = useWindowScroll();
+const headerActive = inject("headerActive");
 
 const mouseover = (index) => {
   area.value = index;
@@ -72,6 +73,7 @@ const mouseout = () => {
 watch(
   () => router.currentRoute.value.path,
   (newValue, oldValue) => {
+    headerActive.value = false;
     switch (newValue) {
       case "/plan":
         active.value = 1;
@@ -92,7 +94,6 @@ watch(
         active.value = 0;
         break;
     }
-    console.log("watch", newValue);
   },
   { immediate: true }
 );
@@ -109,7 +110,9 @@ watch(active, (val) => {
   width: 100%;
   top: 0;
   z-index: 999;
-  // background: #0054ff;
+  &.active {
+    background: #0054ff;
+  }
   .main {
     margin: 0 auto;
     width: 1000px;

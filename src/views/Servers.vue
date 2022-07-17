@@ -10,7 +10,7 @@
       <div class="more">
         <div class="item" v-for="(item, index) in servers" :key="index">
           <div class="icons animate__animated animate__zoomIn animate__delay-1">
-            <img class="icon wow animate__animated animate__fadeInDown6 animate__delay-2" :src="item.icon" alt="" />
+            <img class="icon  animate__animated animate__fadeInDown6 animate__delay-2" :src="item.icon" alt="" />
           </div>
           <div class="animate__animated animate__fadeInLeft1" :class="`animate__delay-3-${index + 1}`">
             <img :src="item.btn" class="s-title" />
@@ -51,21 +51,7 @@ const servers = ref([
     btn: btn3,
   },
 ]);
-onMounted(() => {
-  var wow = new WOW({
-    boxClass: "wow", // animated element css class (default is wow)
-    animateClass: "animated", // animation css class (default is animated)
-    offset: 0, // distance to the element when triggering the animation (default is 0)
-    mobile: true, // trigger animations on mobile devices (default is true)
-    live: true, // act on asynchronously loaded content (default is true)
-    callback: function (box) {
-      // the callback is fired every time an animation is started
-      // the argument that is passed in is the DOM node being animated
-    },
-    scrollContainer: null, // optional scroll container selector, otherwise use window
-  });
-  wow.init();
-});
+
 </script>
 
 <style lang="scss" scoped>

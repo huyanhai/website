@@ -1,46 +1,66 @@
 <template>
   <div class="partner">
-    <div class="container">
-      <img class="img-title animate__animated animate__fadeInDown" src="@/assets/par-2.png" alt="" srcset="" />
-      <div class="server">
-        <img class="bg" src="@/assets/par-3.png" alt="" />
-        <img class="s-title animate__animated animate__fadeInDown animate__delay-1s" src="@/assets/par-4.png" alt="" srcset="" />
-        <img class="s-more" src="@/assets/par-5.png" alt="" srcset="" />
-      </div>
-      <div class="partners">
-        <img class="bg" src="@/assets/par-6.png" alt="" />
-        <img class="p-title wow animate__animated animate__fadeInDown" data-wow-duration="3s" src="@/assets/par-7.png" alt="" srcset="" />
-        <img class="p-more" src="@/assets/par-8.png" alt="" srcset="" />
-      </div>
-    </div>
-    <user-footer />
+    <swiper @init="load" :direction="'vertical'" class="swiper-box" :mousewheel="true" :modules="[Mousewheel]" v-on:slide-change="onSlideChange">
+      <swiper-slide>
+        <div class="step1">
+          <div class="container" v-if="swiperIndex === 0">
+            <img class="img-title animate__animated animate__fadeInDown" src="@/assets/par-2.png" alt="" srcset="" />
+            <div class="server">
+              <img class="bg" src="@/assets/par-3.png" alt="" />
+              <img class="s-title animate__animated animate__fadeInDown animate__delay-1s" src="@/assets/par-4.png" alt="" srcset="" />
+              <img class="s-more" src="@/assets/par-5.png" alt="" srcset="" />
+            </div>
+          </div>
+        </div>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="container" v-if="swiperIndex === 1">
+          <div class="partners">
+            <img class="bg" src="@/assets/par-6.png" alt="" />
+            <img class="p-title animate__animated animate__fadeInDown" data--duration="3s" src="@/assets/par-7.png" alt="" srcset="" />
+            <img class="p-more" src="@/assets/par-8.png" alt="" srcset="" />
+          </div>
+        </div>
+        <user-footer />
+      </swiper-slide>
+    </swiper>
   </div>
 </template>
 <script setup>
 import UserFooter from "@/components/Footer.vue";
-import { onMounted } from "vue";
-onMounted(() => {
-  var wow = new WOW({
-    boxClass: "wow", // animated element css class (default is wow)
-    animateClass: "animated", // animation css class (default is animated)
-    offset: 0, // distance to the element when triggering the animation (default is 0)
-    mobile: true, // trigger animations on mobile devices (default is true)
-    live: true, // act on asynchronously loaded content (default is true)
-    callback: function (box) {
-      // the callback is fired every time an animation is started
-      // the argument that is passed in is the DOM node being animated
-    },
-    scrollContainer: null, // optional scroll container selector, otherwise use window
-  });
-  wow.init();
-});
+import { ref, inject } from "vue";
+import { Mousewheel } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css";
+import "swiper/css/effect-fade";
+
+const swiperDom = ref({});
+const swiperIndex = ref(0);
+const headerActive = inject("headerActive");
+
+const load = (e) => {
+  swiperDom.value = e;
+  swiperIndex.value = swiperDom.value?.activeIndex;
+};
+
+const onSlideChange = () => {
+  swiperIndex.value = swiperDom.value?.activeIndex;
+  if (swiperIndex.value === 1) {
+    headerActive.value = true;
+  } else {
+    headerActive.value = false;
+  }
+};
 </script>
 
 <style lang="scss" scoped>
 .partner {
-  background: url("@/assets/par-1.png") no-repeat center top;
-  background-size: auto 400px;
   height: 100%;
+  .step1 {
+    background: url("@/assets/par-1.png") no-repeat center top;
+    background-size: auto 400px;
+    height: 100%;
+  }
   .container {
     max-width: 1250px;
     margin: 0 auto;
@@ -76,6 +96,7 @@ onMounted(() => {
     .partners {
       width: 100%;
       position: relative;
+      padding-top: 50px;
       .bg {
         width: 100%;
       }
