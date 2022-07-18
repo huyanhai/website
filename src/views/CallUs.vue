@@ -4,12 +4,13 @@
       <div class="more-info">
         <img class="title animate__animated animate__fadeInDown" src="@/assets/call-title.png" alt="" />
         <div class="text-box animate__animated animate__fadeInDown animate__delay-1">
-          <b class="tell">联系电话：023-6666 8888</b>
+          <p class="tell">联系电话：023-6666 8888</p>
           <p class="address">地址：重庆市 渝北区 黄山大道中段7号（中国进出口银行8楼）</p>
-          <button class="btn" @click="toggle"></button>
+          <button class="btn" @click="toggle" v-if="width > 1200"></button>
         </div>
+        <b-map v-if="width < 1200" />
       </div>
-      <div class="more-card animate__animated animate__fadeInDown animate__delay-2">
+      <div class="more-card animate__animated animate__fadeInDown animate__delay-2" v-if="width > 1200">
         <div class="card-box">
           <div class="card">
             <div class="front">
@@ -37,16 +38,33 @@
           </div>
         </div>
       </div>
+      <div v-else class="more-m-card">
+        <div class="col-t">
+          <div>
+            <img src="@/assets/c1-1.png" alt="" />
+          </div>
+          <div>
+            <img src="@/assets/c1-2.png" alt="" />
+          </div>
+        </div>
+        <div class="col-b">
+          <img src="@/assets/c1-3.png" alt="" />
+        </div>
+      </div>
     </div>
     <b-map v-if="showMap" @close="toggle" />
   </div>
+  <user-footer style="position: initial !important" />
 </template>
 <script setup>
 import BMap from "@/components/Map.vue";
+import UserFooter from "@/components/Footer.vue";
+
 import { ref } from "vue";
+import { useWindowSize } from "@vueuse/core";
 
 const showMap = ref(false);
-
+const { width, height } = useWindowSize();
 const toggle = () => {
   showMap.value = !showMap.value;
   if (showMap.value) {
@@ -82,11 +100,6 @@ const toggle = () => {
         color: #fff;
         font-size: 28px;
       }
-      b {
-        font-size: 38px;
-        color: #ffffff;
-        letter-spacing: 4px;
-      }
       .tips {
         color: #ffffff;
         font-size: 22px;
@@ -105,6 +118,8 @@ const toggle = () => {
         background-size: 28px 28px;
         padding-left: 40px;
         font-size: 18px;
+        color: #ffffff;
+        letter-spacing: 4px;
       }
       .btn {
         width: 156px;
@@ -175,6 +190,33 @@ const toggle = () => {
               width: 317px;
             }
           }
+        }
+      }
+    }
+    .more-m-card {
+      width: 90%;
+      margin: 0 auto;
+      .col-t {
+        display: flex;
+        div {
+          width: 50%;
+          box-sizing: border-box;
+          &:first-child {
+            padding-right: 5px;
+          }
+          &:last-child {
+            padding-left: 5px;
+          }
+          img {
+            width: 100%;
+          }
+        }
+      }
+      .col-b {
+        width: 100%;
+        margin-top: -20px;
+        img {
+          width: 100%;
         }
       }
     }

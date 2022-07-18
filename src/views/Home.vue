@@ -6,7 +6,8 @@
           <h3>知识产权数字化服务商</h3>
           <p>Intellectual property digitalization service provider</p>
         </div>
-        <p class="text">依托云计算、大数据、人工智能、移动互联网等信息技术，以企业拥有的<br />知识产权为切入点，构建企业全新生态，提供一站式解决方案。</p>
+        <p class="text p">依托云计算、大数据、人工智能、移动互联网等信息技术，以企业拥有的<br />知识产权为切入点，构建企业全新生态，提供一站式解决方案。</p>
+        <p class="text m">依托云计算、大数据、人工智能、移动互联网等信息技术，以企业拥有的知识产权为切入点，构建企业全新生态，提供一站式解决方案。</p>
       </div>
       <button class="btn animate__animated animate__zoomIn animate__delay-2" @click="$router.push('/about')"></button>
     </div>
@@ -58,6 +59,12 @@ const home = ref(null);
       color: #fff;
       margin: 25px 0;
       text-align: center;
+      &.p {
+        display: block;
+      }
+      &.m {
+        display: none;
+      }
     }
     .btn {
       background: url("@/assets/home-bth.png") no-repeat;

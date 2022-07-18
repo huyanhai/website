@@ -1,146 +1,220 @@
 <template>
   <div class="about">
-    <swiper @init="load" :direction="'vertical'" class="swiper-box" :mousewheel="true" :modules="[Mousewheel]" v-on:slide-change="onSlideChange">
-      <swiper-slide>
-        <div class="step1" v-if="swiperIndex === 0">
-          <div class="container">
-            <img class="img-title animate__animated animate__fadeInDown" src="@/assets/about-2.png" alt="" srcset="" />
-            <div class="jiesao animate__animated animate__fadeInDown animate__delay-1-1">
-              <img class="jiesao-title" src="@/assets/about-4.png" alt="" srcset="" />
-              <div class="box">
-                <div class="col-l">
-                  <div class="col-t">拓垠科技集团成立于2018年3月，是一家专注于知识产权数字化领域的科技型企业。 <br />公司于2019年7月在重庆市股份转让中心挂牌， 股权代码为300690。</div>
-                  <div class="col-b">
-                    <img class="gs" src="@/assets/about-5.png" alt="" srcset="" />
+    <template v-if="width > 1200">
+      <swiper @init="load" :direction="'vertical'" class="swiper-box" :mousewheel="true" :modules="[Mousewheel]" v-on:slide-change="onSlideChange">
+        <swiper-slide>
+          <div class="step1" v-if="swiperIndex === 0">
+            <div class="container">
+              <img class="img-title animate__animated animate__fadeInDown" src="@/assets/about-2.png" alt="" srcset="" />
+              <div class="jiesao animate__animated animate__fadeInDown animate__delay-1-1">
+                <img class="jiesao-title" src="@/assets/about-4.png" alt="" srcset="" />
+                <div class="box">
+                  <div class="col-l">
+                    <div class="col-t">拓垠科技集团成立于2018年3月，是一家专注于知识产权数字化领域的科技型企业。 <br />公司于2019年7月在重庆市股份转让中心挂牌， 股权代码为300690。</div>
+                    <div class="col-b">
+                      <img class="gs" src="@/assets/about-5.png" alt="" srcset="" />
+                    </div>
                   </div>
-                </div>
-                <div class="col-r">
-                  <div class="col-t"><img class="gs" src="@/assets/about-5-1.png" alt="" srcset="" /></div>
-                  <div class="col-b">
-                    公司团队依托云计算、大数据、人工智能、移动互联网等信息技术，以企业拥有的知识产权为切入点，构建企业全新生态，提供一站式解决方案。该系统内置了近百个知识产权风险检测指标和风控模型，综合分析企业的知识产权相关指标，通过线上平台直接生成企业知识产权综合评估报告。<br />
-                    拓垠科技作为第三方技术服务商，致力于帮助银行、征信机构、 保理机构
-                    、科技公司、企服公司、行业协会、知识产权公司等客户整合数据、增强核心竞争力，助力知识产权数字化升级。我司风险检测系统已为银行、企服公司等300多家客户提供了安全、便捷、高效、全面的数字化风控服务。
+                  <div class="col-r">
+                    <div class="col-t"><img class="gs" src="@/assets/about-5-1.png" alt="" srcset="" /></div>
+                    <div class="col-b">
+                      公司团队依托云计算、大数据、人工智能、移动互联网等信息技术，以企业拥有的知识产权为切入点，构建企业全新生态，提供一站式解决方案。该系统内置了近百个知识产权风险检测指标和风控模型，综合分析企业的知识产权相关指标，通过线上平台直接生成企业知识产权综合评估报告。<br />
+                      拓垠科技作为第三方技术服务商，致力于帮助银行、征信机构、 保理机构
+                      、科技公司、企服公司、行业协会、知识产权公司等客户整合数据、增强核心竞争力，助力知识产权数字化升级。我司风险检测系统已为银行、企服公司等300多家客户提供了安全、便捷、高效、全面的数字化风控服务。
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </swiper-slide>
-      <swiper-slide>
-        <div class="step2" v-if="swiperIndex === 1">
-          <div class="container">
-            <img class="qywh animate__animated animate__fadeInDown" src="@/assets/about-7-1.png" alt="" />
-            <div class="more-server animate__animated animate__fadeInDown animate__delay-1-1">
-              <div class="item">
-                <img src="@/assets/about-i1.png" alt="" />
-                <b>企业使命</b>
-                <p>助成渝地区万千<br />企业高质量发展</p>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="step2" v-if="swiperIndex === 1">
+            <div class="container">
+              <img class="qywh animate__animated animate__fadeInDown" src="@/assets/about-7-1.png" alt="" />
+              <div class="more-server animate__animated animate__fadeInDown animate__delay-1-1">
+                <div class="item">
+                  <img src="@/assets/about-i1.png" alt="" />
+                  <b>企业使命</b>
+                  <p>助成渝地区万千<br />企业高质量发展</p>
+                </div>
+                <div class="item">
+                  <img src="@/assets/about-i2.png" alt="" />
+                  <b>经营理念</b>
+                  <p>成就客户的心永不变<br />成就员工的心永不变</p>
+                </div>
+                <div class="item">
+                  <img src="@/assets/about-i3.png" alt="" />
+                  <b>企业价值观</b>
+                  <p>诚信为本、效率优先<br />专业至上、合作共赢</p>
+                </div>
+                <div class="item">
+                  <img src="@/assets/about-i4.png" alt="" />
+                  <b>企业愿景</b>
+                  <p>用科技技术服务<br />助企业降低成本</p>
+                </div>
               </div>
-              <div class="item">
-                <img src="@/assets/about-i2.png" alt="" />
-                <b>经营理念</b>
-                <p>成就客户的心永不变<br />成就员工的心永不变</p>
-              </div>
-              <div class="item">
-                <img src="@/assets/about-i3.png" alt="" />
-                <b>企业价值观</b>
-                <p>诚信为本、效率优先<br />专业至上、合作共赢</p>
-              </div>
-              <div class="item">
-                <img src="@/assets/about-i4.png" alt="" />
-                <b>企业愿景</b>
-                <p>用科技技术服务<br />助企业降低成本</p>
+              <img class="yzs animate__animated animate__fadeInDown animate__delay-2-1" src="@/assets/about-8.png" alt="" />
+              <div class="one-server animate__animated animate__fadeInDown animate__delay-3">
+                <div class="servers">
+                  <div class="item">
+                    <div class="front">
+                      <img src="@/assets/about-9.png" alt="" />
+                    </div>
+                    <div class="backend">
+                      <img src="@/assets/about-20.png" alt="" />
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="front">
+                      <img src="@/assets/about-10.png" alt="" />
+                    </div>
+                    <div class="backend">
+                      <img src="@/assets/about-21.png" alt="" />
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="front">
+                      <img src="@/assets/about-11.png" alt="" />
+                    </div>
+                    <div class="backend">
+                      <img src="@/assets/about-22.png" alt="" />
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="front">
+                      <img src="@/assets/about-12.png" alt="" />
+                    </div>
+                    <div class="backend">
+                      <img src="@/assets/about-23.png" alt="" />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <img class="yzs animate__animated animate__fadeInDown animate__delay-2-1" src="@/assets/about-8.png" alt="" />
-            <div class="one-server animate__animated animate__fadeInDown animate__delay-3">
-              <div class="servers">
-                <div class="item">
-                  <div class="front">
-                    <img src="@/assets/about-9.png" alt="" />
-                  </div>
-                  <div class="backend">
-                    <img src="@/assets/about-20.png" alt="" />
-                  </div>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="step3" v-if="swiperIndex === 2">
+            <div class="container">
+              <div class="ry-box">
+                <img class="ry-title animate__animated animate__fadeInDown" src="@/assets/about-13.png" alt="" />
+                <div class="sw">
+                  <swiper :modules="[Mousewheel, Pagination, Navigation, Autoplay]" :navigation="true" :pagination="true" :autoplay="true">
+                    <swiper-slide class="ry-item">
+                      <div class="ry-h">
+                        <img src="@/assets/about-14.png" class="ry-img" />
+                        <p>我司为重庆市经信委旗下“渝企金服”数字化服务机构</p>
+                      </div>
+                    </swiper-slide>
+                    <swiper-slide class="ry-item">
+                      <div class="ry-h">
+                        <img src="@/assets/about-15.png" class="ry-img" />
+                        <p>
+                          连续两年获得重庆市股份转让中心<br />
+                          “最佳合作机构”
+                        </p>
+                      </div>
+                    </swiper-slide>
+                    <swiper-slide class="ry-item">
+                      <div class="ry-h">
+                        <img src="@/assets/about-16.png" class="ry-img" />
+                        <p>部分技术资质证书</p>
+                      </div>
+                    </swiper-slide>
+                  </swiper>
                 </div>
-                <div class="item">
-                  <div class="front">
-                    <img src="@/assets/about-10.png" alt="" />
-                  </div>
-                  <div class="backend">
-                    <img src="@/assets/about-21.png" alt="" />
-                  </div>
+              </div>
+            </div>
+            <user-footer />
+          </div>
+        </swiper-slide>
+      </swiper>
+    </template>
+    <template v-else>
+      <div class="step2">
+        <img class="img-title animate__animated animate__fadeInDown" src="@/assets/about-2.png" alt="" srcset="" />
+        <div class="container">
+          <div class="more-server animate__animated animate__fadeInDown animate__delay-1-1">
+            <div class="item">
+              <img src="@/assets/about-i1.png" alt="" />
+              <b>企业使命</b>
+              <p>助成渝地区万千企业高质量发展</p>
+            </div>
+            <div class="item">
+              <img src="@/assets/about-i2.png" alt="" />
+              <b>经营理念</b>
+              <p>成就客户的心永不变成就员工的心永不变</p>
+            </div>
+            <div class="item">
+              <img src="@/assets/about-i3.png" alt="" />
+              <b>企业价值观</b>
+              <p>诚信为本、效率优先专业至上、合作共赢</p>
+            </div>
+            <div class="item">
+              <img src="@/assets/about-i4.png" alt="" />
+              <b>企业愿景</b>
+              <p>用科技技术服务助企业降低成本</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="step1">
+        <div class="container">
+          <img class="jiesao-title animate__animated animate__fadeInDown animate__delay-2" src="@/assets/about-4.png" alt="" srcset="" />
+          <div class="jiesao animate__animated animate__fadeInDown animate__delay-2-4">
+            <div class="box">
+              <div class="col-r">
+                <div class="col-b">
+                  公司团队依托云计算、大数据、人工智能、移动互联网等信息技术，以企业拥有的知识产权为切入点，构建企业全新生态，提供一站式解决方案。该系统内置了近百个知识产权风险检测指标和风控模型，综合分析企业的知识产权相关指标，通过线上平台直接生成企业知识产权综合评估报告。<br />
+                  拓垠科技作为第三方技术服务商，致力于帮助银行、征信机构、 保理机构
+                  、科技公司、企服公司、行业协会、知识产权公司等客户整合数据、增强核心竞争力，助力知识产权数字化升级。我司风险检测系统已为银行、企服公司等300多家客户提供了安全、便捷、高效、全面的数字化风控服务。
                 </div>
-                <div class="item">
-                  <div class="front">
-                    <img src="@/assets/about-11.png" alt="" />
-                  </div>
-                  <div class="backend">
-                    <img src="@/assets/about-22.png" alt="" />
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="front">
-                    <img src="@/assets/about-12.png" alt="" />
-                  </div>
-                  <div class="backend">
-                    <img src="@/assets/about-23.png" alt="" />
-                  </div>
-                </div>
+                <div class="col-t"><img class="gs" src="@/assets/about-5.png" alt="" srcset="" /></div>
               </div>
             </div>
           </div>
         </div>
-      </swiper-slide>
-      <swiper-slide>
-        <div class="step3" v-if="swiperIndex === 2">
-          <div class="container">
-            <div class="ry-box">
-              <img class="ry-title animate__animated animate__fadeInDown" src="@/assets/about-13.png" alt="" />
-              <div class="sw">
-                <swiper :modules="[Mousewheel, Pagination, Navigation]" :navigation="true" :pagination="true" :autoplay="true">
-                  <swiper-slide class="ry-item">
-                    <div class="ry-h">
-                      <img src="@/assets/about-14.png" class="ry-img" />
-                      <p>我司为重庆市经信委旗下“渝企金服”数字化服务机构</p>
-                    </div>
-                  </swiper-slide>
-                  <swiper-slide class="ry-item">
-                    <div class="ry-h">
-                      <img src="@/assets/about-15.png" class="ry-img" />
-                      <p>我司为重庆市经信委旗下“渝企金服”数字化服务机构</p>
-                    </div>
-                  </swiper-slide>
-                  <swiper-slide class="ry-item">
-                    <div class="ry-h">
-                      <img src="@/assets/about-16.png" class="ry-img" />
-                      <p>我司为重庆市经信委旗下“渝企金服”数字化服务机构</p>
-                    </div>
-                  </swiper-slide>
-                </swiper>
-              </div>
+      </div>
+      <div class="yzs-s">
+        <img class="yzs animate__animated animate__fadeInDown animate__delay-2-1" src="@/assets/yzsfw.png" alt="" />
+        <div class="one-server animate__animated animate__fadeInDown animate__delay-3">
+          <div class="servers">
+            <div class="item">
+              <img src="@/assets/yzs1.png" alt="" />
+            </div>
+            <div class="item">
+              <img src="@/assets/yzs2.png" alt="" />
+            </div>
+            <div class="item">
+              <img src="@/assets/yzs3.png" alt="" />
+            </div>
+            <div class="item">
+              <img src="@/assets/yzs4.png" alt="" />
             </div>
           </div>
-          <user-footer />
         </div>
-      </swiper-slide>
-    </swiper>
+      </div>
+      <user-footer style="position: initial !important" />
+    </template>
   </div>
 </template>
 <script setup>
 import UserFooter from "@/components/Footer.vue";
 import { ref, inject } from "vue";
-import { Mousewheel, Pagination, Navigation } from "swiper";
+import { Mousewheel, Pagination, Navigation, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { useWindowSize } from "@vueuse/core";
 
 const swiperDom = ref({});
 const swiperIndex = ref(0);
 const headerActive = inject("headerActive");
+const { width, height } = useWindowSize();
+
 const load = (e) => {
   swiperDom.value = e;
   swiperIndex.value = swiperDom.value?.activeIndex;

@@ -21,9 +21,12 @@
         </div>
       </div>
     </div>
+    <user-footer />
   </div>
 </template>
 <script setup>
+import UserFooter from "@/components/Footer.vue";
+
 import icon1 from "@/assets/servers-i1.png";
 import icon2 from "@/assets/servers-i2.png";
 import icon3 from "@/assets/servers-i3.png";

@@ -1,29 +1,53 @@
 <template>
   <div class="partner">
-    <swiper @init="load" :direction="'vertical'" class="swiper-box" :mousewheel="true" :modules="[Mousewheel]" v-on:slide-change="onSlideChange">
-      <swiper-slide>
-        <div class="step1">
-          <div class="container" v-if="swiperIndex === 0">
-            <img class="img-title animate__animated animate__fadeInDown" src="@/assets/par-2.png" alt="" srcset="" />
-            <div class="server">
-              <img class="bg" src="@/assets/par-3.png" alt="" />
-              <img class="s-title animate__animated animate__fadeInDown animate__delay-1s" src="@/assets/par-4.png" alt="" srcset="" />
-              <img class="s-more" src="@/assets/par-5.png" alt="" srcset="" />
+    <template v-if="width > 1200">
+      <swiper @init="load" :direction="'vertical'" class="swiper-box" :mousewheel="true" :modules="[Mousewheel]" v-on:slide-change="onSlideChange">
+        <swiper-slide>
+          <div class="step1">
+            <div class="container" v-if="swiperIndex === 0">
+              <img class="img-title animate__animated animate__fadeInDown" src="@/assets/par-2.png" alt="" srcset="" />
+              <div class="server">
+                <img class="bg" src="@/assets/par-3.png" alt="" />
+                <img class="s-title animate__animated animate__fadeInDown animate__delay-1s" src="@/assets/par-4.png" alt="" srcset="" />
+                <img class="s-more" src="@/assets/par-5.png" alt="" srcset="" />
+              </div>
             </div>
           </div>
-        </div>
-      </swiper-slide>
-      <swiper-slide>
-        <div class="container" v-if="swiperIndex === 1">
-          <div class="partners">
-            <img class="bg" src="@/assets/par-6.png" alt="" />
-            <img class="p-title animate__animated animate__fadeInDown" data--duration="3s" src="@/assets/par-7.png" alt="" srcset="" />
-            <img class="p-more" src="@/assets/par-8.png" alt="" srcset="" />
+        </swiper-slide>
+        <swiper-slide>
+          <div class="container" v-if="swiperIndex === 1">
+            <div class="partners">
+              <img class="bg" src="@/assets/par-6.png" alt="" />
+              <img class="p-title animate__animated animate__fadeInDown" data--duration="3s" src="@/assets/par-7.png" alt="" srcset="" />
+              <img class="p-more" src="@/assets/par-8.png" alt="" srcset="" />
+            </div>
+          </div>
+          <user-footer />
+        </swiper-slide>
+      </swiper>
+      <div class="scroll animate__animated animate__fadeInDown animate__infinite" style="animation-duration: 2s" v-if="swiperIndex < 1">
+        <img src="@/assets/plan-scroll1.png" alt="" srcset="" />
+        <p>向下滑动</p>
+      </div>
+    </template>
+    <template v-else>
+      <div class="step1">
+        <div class="container" v-if="swiperIndex === 0">
+          <img class="img-title animate__animated animate__fadeInDown" src="@/assets/par-2.png" alt="" srcset="" />
+          <div class="server">
+            <img class="bg" src="@/assets/par-3.png" alt="" />
+            <img class="s-title animate__animated animate__fadeInDown animate__delay-1s" src="@/assets/par-4.png" alt="" srcset="" />
+            <img class="s-more" src="@/assets/par-5.png" alt="" srcset="" />
           </div>
         </div>
-        <user-footer />
-      </swiper-slide>
-    </swiper>
+      </div>
+      <div class="partners">
+        <img class="bg" src="@/assets/par-6.png" alt="" />
+        <img class="p-title animate__animated animate__fadeInDown" data--duration="3s" src="@/assets/par-7.png" alt="" srcset="" />
+        <img class="p-more" src="@/assets/par-8.png" alt="" srcset="" />
+      </div>
+      <user-footer style="position: initial !important" />
+    </template>
   </div>
 </template>
 <script setup>
@@ -33,6 +57,8 @@ import { Mousewheel } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/effect-fade";
+import { useWindowSize } from "@vueuse/core";
+const { width, height } = useWindowSize();
 
 const swiperDom = ref({});
 const swiperIndex = ref(0);
@@ -56,6 +82,28 @@ const onSlideChange = () => {
 <style lang="scss" scoped>
 .partner {
   height: 100%;
+  position: relative;
+  .scroll {
+    width: 35px;
+    margin: 0 auto 0 auto;
+    position: absolute;
+    z-index: 100;
+    bottom: 20px;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: -17.5px;
+    img {
+      width: 100%;
+    }
+    p {
+      font-size: 12px;
+      color: #2777ff;
+      display: block;
+      width: 50px;
+    }
+  }
   .step1 {
     background: url("@/assets/par-1.png") no-repeat center top;
     background-size: auto 400px;
@@ -67,7 +115,7 @@ const onSlideChange = () => {
     .img-title {
       width: 280px;
       height: 117px;
-      margin-top: 113px;
+      margin-top: 80px;
       margin-left: 119px;
     }
     .server {

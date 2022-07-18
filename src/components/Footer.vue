@@ -60,14 +60,15 @@ const links = ref([
     width: 1200px;
     margin: 0 auto;
     display: flex;
-    padding-top: 43px;
     box-sizing: border-box;
     justify-content: space-between;
+    align-items: center;
+    height: 100%;
     .col-l {
       width: 200px;
       height: 60px;
       img {
-        height: 100%;
+        width: 100%;
       }
     }
     .col-r {

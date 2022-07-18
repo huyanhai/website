@@ -1,10 +1,10 @@
 <template>
-  <header class="header" :class="headerActive ? 'active' : ''">
+  <header class="header" :class="[headerActive ? 'active' : '', width < 1200 ? 'absolute' : 'fixed']">
     <main class="main">
       <a class="logo">
         <img src="@/assets/logo.png" alt="" srcset="" />
       </a>
-      <ul @mouseout="mouseout">
+      <ul @mouseout="mouseout" class="p-menu">
         <li
           v-for="(item, index) in links"
           :key="index"
@@ -21,12 +21,36 @@
         <i class="area" :style="{ left: area * 140 + 'px' }"></i>
       </ul>
     </main>
+    <teleport to="body">
+      <i class="close-open" :class="{ active: menuMobile }" @click="toggle"></i>
+      <div class="m-menu" v-if="menuMobile">
+        <div class="box">
+          <ul>
+            <li
+              v-for="(item, index) in links"
+              :key="index"
+              @click="
+                active = index;
+                $router.push(item.link);
+                toggle();
+              "
+            >
+              <a :class="{ active: area === index }">
+                <p>{{ item.text }}</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="layer" v-if="menuMobile"></div>
+    </teleport>
   </header>
 </template>
 <script setup>
 import { watch, ref, inject } from "vue";
 import { useRouter } from "vue-router";
-import { useWindowScroll } from "@vueuse/core";
+import { useWindowScroll, useWindowSize } from "@vueuse/core";
+const { width, height } = useWindowSize();
 const links = ref([
   {
     text: "首页",
@@ -54,13 +78,15 @@ const links = ref([
   },
 ]);
 
-const active = ref();
+const active = ref(0);
 
-const area = ref();
+const area = ref(0);
 
 const router = useRouter();
 const { x, y } = useWindowScroll();
 const headerActive = inject("headerActive");
+
+const menuMobile = ref(false);
 
 const mouseover = (index) => {
   area.value = index;
@@ -68,6 +94,10 @@ const mouseover = (index) => {
 
 const mouseout = () => {
   area.value = active.value;
+};
+
+const toggle = () => {
+  menuMobile.value = !menuMobile.value;
 };
 
 watch(
@@ -104,12 +134,46 @@ watch(active, (val) => {
 </script>
 
 <style lang="scss" scoped>
+.layer {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1000;
+  background: rgba($color: #000000, $alpha: 0.8);
+  top: 0;
+  left: 0;
+  display: none;
+}
+.m-menu {
+  display: none;
+}
+.close-open {
+  position: absolute;
+  height: 60px;
+  right: 28px;
+  top: 0;
+  width: 24px;
+  background: url("@/assets/m-open.png") no-repeat center center;
+  background-size: 100% auto;
+  z-index: 1002;
+  display: none;
+  &.active {
+    background: url("@/assets/m-close.png") no-repeat center center;
+    background-size: 100% auto;
+  }
+}
 .header {
   height: 60px;
-  position: fixed;
   width: 100%;
   top: 0;
   z-index: 999;
+  &.absolute {
+    position: absolute;
+  }
+  &.fixed {
+    position: fixed;
+  }
+
   &.active {
     background: #0054ff;
   }
@@ -119,6 +183,8 @@ watch(active, (val) => {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    height: 60px;
     .logo {
       display: block;
       overflow: hidden;
