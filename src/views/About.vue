@@ -99,7 +99,7 @@
             <div class="ry-box">
               <img class="ry-title animate__animated animate__fadeInDown" src="@/assets/about-13.png" alt="" />
               <div class="sw">
-                <swiper :modules="[Mousewheel, Pagination, Navigation]" :navigation="true" :pagination="true">
+                <swiper :modules="[Mousewheel, Pagination, Navigation]" :navigation="true" :pagination="true" :autoplay="true">
                   <swiper-slide class="ry-item">
                     <div class="ry-h">
                       <img src="@/assets/about-14.png" class="ry-img" />
