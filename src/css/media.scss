@@ -125,12 +125,33 @@
   //   home
   .home .info-card {
     width: 90% !important;
-    background: url("@/assets/home-card1.png") no-repeat !important;
+    background: url("@/assets/m-home-middle.png") repeat-y !important;
     background-size: 100% auto !important;
     padding: 0 20px !important;
-    margin: 103px auto 0 auto !important;
+    margin: 130px auto 0 auto !important;
+    position: relative;
+    overflow: initial !important;
+    height: initial !important;
+    &::before {
+      width: 100%;
+      height: 52px;
+      background: url("@/assets/m-home-top.png") no-repeat !important;
+      background-size: 100% auto !important;
+      position: absolute;
+      content: "";
+      top: -52px;
+    }
+    &::after {
+      width: 100%;
+      height: 55px;
+      background: url("@/assets/m-home-bottom.png") no-repeat !important;
+      background-size: 100% auto !important;
+      position: absolute;
+      content: "";
+      bottom: -55px;
+    }
     .title {
-      margin-top: 60px !important;
+      margin-top: 0px !important;
       h3 {
         font-size: 22px !important;
       }
@@ -149,6 +170,9 @@
       &.m {
         display: block !important;
       }
+    }
+    .btn {
+      transform: scale(0.8) !important;
     }
   }
 
@@ -180,29 +204,27 @@
           .t {
             font-size: 12px !important;
             line-height: 20px !important;
+            text-align: center !important;
             &.t1 {
-              top: -20px !important;
+              top: -35px !important;
             }
             &.t2 {
               right: -60px !important;
-              text-align: left !important;
               top: 50px !important;
             }
             &.t3 {
               right: -45px !important;
-              text-align: left !important;
               bottom: 10px !important;
               top: initial !important;
             }
             &.t4 {
-              right: -70px !important;
-              text-align: left !important;
               bottom: 10px !important;
               top: initial !important;
+              left: -50px !important;
+              display: block !important;
             }
             &.t5 {
               left: -62px !important;
-              text-align: left !important;
               top: 50px !important;
             }
           }

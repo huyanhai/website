@@ -75,10 +75,10 @@
               <img class="r a-icon" src="@/assets/plan-s1-2.png" alt="" />
               <img class="s animate__animated animate__zoomIn" src="@/assets/plan-s1-1.png" alt="" srcset="" />
               <span class="t t1 animate__animated a-icon2 animate__delay-1-1">全生命周期<br />多元产品体系</span>
-              <span class="t t2 animate__animated a-icon3 animate__delay-1-2">以知识产权客群为<br />中心的运营体系</span>
+              <span class="t t2 animate__animated a-icon3 animate__delay-1-2">以知识产权<br />客群为中心<br />的运营体系</span>
               <span class="t t3 animate__animated a-icon3 animate__delay-1-3">高效率、高标准<br />高质量交付</span>
-              <span class="t t4 animate__animated a-icon3 animate__delay-1-4">数字化“知产质押融资”<br />创新体系</span>
-              <span class="t t5 animate__animated a-icon3 animate__delay-1-5">数据信贷的风险识<br />别与量化风控体系</span>
+              <span class="t t4 animate__animated a-icon3 animate__delay-1-4">数字化“知产质<br />押融资”创新体系</span>
+              <span class="t t5 animate__animated a-icon3 animate__delay-1-5">数据信贷的<br />风险识别与<br />量化风控体<br />系</span>
             </div>
           </div>
         </div>
