@@ -13,7 +13,7 @@
           </ul>
         </div>
         <div class="bottom">
-          <span>电话：023-6666 8888</span>
+          <span>电话：023 6084 9878 </span>
           <span>地址：重庆市 渝北区 黄山大道中段7号（中国进出口银行8楼）</span>
         </div>
       </div>

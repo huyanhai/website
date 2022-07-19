@@ -5,15 +5,15 @@
         <swiper-slide>
           <div class="container" v-if="swiperIndex === 0">
             <div class="step1">
-              <h3 class="title animate__animated animate__fadeInDown">“微生素”小微金融生命体系</h3>
+              <h3 class="title animate__animated animate__fadeInDown">“知识产权”小微金融生命体系</h3>
               <div class="box">
                 <div class="anim-b">
                   <img class="r a-icon" src="@/assets/plan-s1-2.png" alt="" />
                   <img class="s animate__animated animate__zoomIn" src="@/assets/plan-s1-1.png" alt="" srcset="" />
-                  <span class="t t1 animate__animated a-icon2 animate__delay-1-1">多元产品体系</span>
-                  <span class="t t2 animate__animated a-icon3 animate__delay-1-2">以客户为中心<br />的运营体系</span>
-                  <span class="t t3 animate__animated a-icon3 animate__delay-1-3">标准高效的<br />交付新体系</span>
-                  <span class="t t4 animate__animated a-icon3 animate__delay-1-4">数字化小微智<br />能创新体系</span>
+                  <span class="t t1 animate__animated a-icon2 animate__delay-1-1">全生命周期<br />多元产品体系</span>
+                  <span class="t t2 animate__animated a-icon3 animate__delay-1-2">以知识产权客群为<br />中心的运营体系</span>
+                  <span class="t t3 animate__animated a-icon3 animate__delay-1-3">高效率、高标准<br />高质量交付</span>
+                  <span class="t t4 animate__animated a-icon3 animate__delay-1-4">数字化“知产质押融资”<br />创新体系</span>
                   <span class="t t5 animate__animated a-icon3 animate__delay-1-5">数据信贷的风险识<br />别与量化风控体系</span>
                 </div>
               </div>
@@ -23,7 +23,7 @@
         <swiper-slide>
           <div class="container" v-if="swiperIndex === 1">
             <div class="step2 animate__animated animate__fadeInDown">
-              <h3 class="title">“毕昇”数字小微赋能平台</h3>
+              <h3 class="title">“知识产权质押融资”数字化赋能平台</h3>
               <div class="items">
                 <div class="item" v-for="(item, index) in list" :key="index">
                   <img :src="item.icon" alt="" srcset="" />
@@ -33,13 +33,13 @@
               </div>
             </div>
             <div class="step3 animate__animated animate__fadeInDown animate__delay-1">
-              <h3 class="title">小微中台业务驱动与管理</h3>
+              <h3 class="title">业务中台架构与管理</h3>
               <div class="items">
                 <img class="animate__animated animate__zoomIn animate__delay-2" src="@/assets/plan-s3-1.png" alt="" srcset="" />
-                <span class="t t1 animate__animated animate__fadeInDown6 animate__delay-2-1">小微产品<br />运营监控<br />管理</span>
-                <span class="t t2 animate__animated animate__fadeInDown6 animate__delay-2-2">小微产品<br />设计定义<br />与管理</span>
-                <span class="t t3 animate__animated animate__fadeInDown6 animate__delay-2-3">小微客户<br />分析与管理</span>
-                <span class="t t4 animate__animated animate__fadeInDown6 animate__delay-2-4">营销管理<br />决策审核<br />与审批(含自动决策)<br />贷后管理</span>
+                <span class="t t1 animate__animated animate__fadeInDown6 animate__delay-2-1">产品运营<br />监控管理</span>
+                <span class="t t2 animate__animated animate__fadeInDown6 animate__delay-2-2">产品设计<br />定义与管理</span>
+                <span class="t t3 animate__animated animate__fadeInDown6 animate__delay-2-3">客户<br />分析与管理</span>
+                <span class="t t4 animate__animated animate__fadeInDown6 animate__delay-2-4">营销管理<br />决策审核<br />与审批<br />贷后管理</span>
               </div>
             </div>
           </div>
@@ -69,21 +69,21 @@
     <template v-else>
       <div class="container" v-if="swiperIndex === 0">
         <div class="step1">
-          <h3 class="title animate__animated animate__fadeInDown">“微生素”小微金融生命体系</h3>
+          <h3 class="title animate__animated animate__fadeInDown">“知识产权”小微金融生命体系</h3>
           <div class="box">
             <div class="anim-b">
               <img class="r a-icon" src="@/assets/plan-s1-2.png" alt="" />
               <img class="s animate__animated animate__zoomIn" src="@/assets/plan-s1-1.png" alt="" srcset="" />
-              <span class="t t1 animate__animated a-icon2 animate__delay-1-1">多元产品体系</span>
-              <span class="t t2 animate__animated a-icon3 animate__delay-1-2">以客户为中心<br />的运营体系</span>
-              <span class="t t3 animate__animated a-icon3 animate__delay-1-3">标准高效的<br />交付新体系</span>
-              <span class="t t4 animate__animated a-icon3 animate__delay-1-4">数字化小微智<br />能创新体系</span>
-              <span class="t t5 animate__animated a-icon3 animate__delay-1-5">数据信贷的风<br />险识别与量化<br />风控体系</span>
+              <span class="t t1 animate__animated a-icon2 animate__delay-1-1">全生命周期<br />多元产品体系</span>
+              <span class="t t2 animate__animated a-icon3 animate__delay-1-2">以知识产权客群为<br />中心的运营体系</span>
+              <span class="t t3 animate__animated a-icon3 animate__delay-1-3">高效率、高标准<br />高质量交付</span>
+              <span class="t t4 animate__animated a-icon3 animate__delay-1-4">数字化“知产质押融资”<br />创新体系</span>
+              <span class="t t5 animate__animated a-icon3 animate__delay-1-5">数据信贷的风险识<br />别与量化风控体系</span>
             </div>
           </div>
         </div>
         <div class="step2 animate__animated animate__fadeInDown">
-          <h3 class="title">“毕昇”数字小微赋能平台</h3>
+          <h3 class="title">“知识产权质押融资”数字化赋能平台</h3>
           <div class="items">
             <div class="item" v-for="(item, index) in list" :key="index">
               <img :src="item.icon" alt="" srcset="" />
