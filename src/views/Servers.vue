@@ -21,7 +21,7 @@
         </div>
       </div>
     </div>
-    <user-footer />
+    <user-footer v-if="width < 1200"/>
   </div>
 </template>
 <script setup>
@@ -36,6 +36,9 @@ import btn2 from "@/assets/servers-btn2.png";
 import btn3 from "@/assets/servers-btn3.png";
 
 import { ref, onMounted } from "vue";
+import { useWindowSize } from "@vueuse/core";
+
+const { width, height } = useWindowSize();
 
 const servers = ref([
   {
