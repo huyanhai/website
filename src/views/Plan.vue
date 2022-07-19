@@ -2,7 +2,7 @@
   <div class="plan">
     <template v-if="width > 1200">
       <swiper @init="load" :direction="'vertical'" class="swiper-box" :mousewheel="true" :modules="[Mousewheel]" v-on:slide-change="onSlideChange">
-        <swiper-slide>
+        <swiper-slide class="plan-1">
           <div class="container" v-if="swiperIndex === 0">
             <div class="step1">
               <h3 class="title animate__animated animate__fadeInDown">“知识产权”小微金融生命体系</h3>
@@ -20,7 +20,7 @@
             </div>
           </div>
         </swiper-slide>
-        <swiper-slide>
+        <swiper-slide class="plan-2">
           <div class="container" v-if="swiperIndex === 1">
             <div class="step2 animate__animated animate__fadeInDown">
               <h3 class="title">“知识产权质押融资”数字化赋能平台</h3>
@@ -44,7 +44,7 @@
             </div>
           </div>
         </swiper-slide>
-        <swiper-slide>
+        <swiper-slide class="plan-3">
           <div class="container" v-if="swiperIndex === 2">
             <div class="step4 animate__animated animate__fadeInDown">
               <h3 class="title">“Cornerstone·基石”业务</h3>
@@ -67,7 +67,7 @@
       </div>
     </template>
     <template v-else>
-      <div class="container" v-if="swiperIndex === 0">
+      <div class="container">
         <div class="step1">
           <h3 class="title animate__animated animate__fadeInDown">“知识产权”小微金融生命体系</h3>
           <div class="box">
@@ -197,6 +197,14 @@ const onSlideChange = () => {
   animation-name: animal3;
 }
 
+.plan-1 {
+  background: url("@/assets/plan-bg1.png") no-repeat;
+  background-size: cover;
+}
+.plan-2 {
+  background: url("@/assets/plan-bg2.png") no-repeat;
+  background-size: cover;
+}
 .scroll {
   width: 35px;
   margin: 0 auto 0 auto;
@@ -220,7 +228,7 @@ const onSlideChange = () => {
 }
 
 .plan {
-  background: url("@/assets/plan-bg.png") no-repeat #0054ff;
+  background: url("@/assets/plan-bg.png") no-repeat #0054ff center bottom;
   background-size: cover;
   width: 100%;
   height: 100%;
