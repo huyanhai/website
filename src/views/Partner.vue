@@ -9,7 +9,17 @@
               <div class="server">
                 <img class="bg" src="@/assets/par-3.png" alt="" />
                 <img class="s-title animate__animated animate__fadeInDown animate__delay-1s" src="@/assets/par-4.png" alt="" srcset="" />
-                <img class="s-more" src="@/assets/par-5.png" alt="" srcset="" />
+                <div class="fuwu-box">
+                  <div class="box">
+                    <img class="yuan animate__animated animate__zoomIn animate__delay-1-1" src="@/assets/fuwu-yuan.png" alt="" />
+                    <img class="fuwu fuwu1 animate__animated animate__fadeInDown animate__delay-1-4" src="@/assets/fuwu1.png" alt="" srcset="" />
+                    <img class="fuwu fuwu2 animate__animated animate__fadeInDown animate__delay-1-5" src="@/assets/fuwu2.png" alt="" srcset="" />
+                    <img class="fuwu fuwu3 animate__animated animate__fadeInDown animate__delay-1-6" src="@/assets/fuwu3.png" alt="" srcset="" />
+                    <img class="fuwu fuwu4 animate__animated animate__fadeInDown animate__delay-1-1" src="@/assets/fuwu6.png" alt="" srcset="" />
+                    <img class="fuwu fuwu5 animate__animated animate__fadeInDown animate__delay-1-2" src="@/assets/fuwu5.png" alt="" srcset="" />
+                    <img class="fuwu fuwu6 animate__animated animate__fadeInDown animate__delay-1-3" src="@/assets/fuwu4.png" alt="" srcset="" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -108,6 +118,52 @@ const onSlideChange = () => {
     background: url("@/assets/par-1.png") no-repeat center top;
     background-size: auto 400px;
     height: 100%;
+    .fuwu-box {
+      width: 314px;
+      height: 314px;
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform: translateX(-50%);
+      .box {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        .yuan {
+          width: 100%;
+          height: 100%;
+        }
+        .fuwu {
+          position: absolute;
+          width: 311px;
+          height: 42px;
+          &.fuwu1 {
+            left: -286px;
+            top: 5px;
+          }
+          &.fuwu2 {
+            left: -334px;
+            top: 117px;
+          }
+          &.fuwu3 {
+            left: -292px;
+            top: 230px;
+          }
+          &.fuwu4 {
+            right: -283px;
+            top: 5px;
+          }
+          &.fuwu5 {
+            right: -334px;
+            top: 117px;
+          }
+          &.fuwu6 {
+            right: -283px;
+            top: 230px;
+          }
+        }
+      }
+    }
   }
   .container {
     max-width: 1250px;

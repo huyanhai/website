@@ -189,7 +189,7 @@ watch(active, (val) => {
       display: block;
       overflow: hidden;
       img {
-        width: 120px;
+        width: 162px;
       }
     }
     ul {

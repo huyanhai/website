@@ -41,10 +41,10 @@
       <div v-else class="more-m-card">
         <div class="col-t">
           <div>
-            <img src="@/assets/c1-1.png" alt="" />
+            <img src="@/assets/c1-2.png" alt="" />
           </div>
           <div>
-            <img src="@/assets/c1-2.png" alt="" />
+            <img src="@/assets/c1-1.png" alt="" />
           </div>
         </div>
         <div class="col-b">
@@ -54,7 +54,7 @@
     </div>
     <b-map v-if="showMap" @close="toggle" />
   </div>
-  <user-footer style="position: initial !important" />
+  <user-footer style="position: initial !important" v-if="width < 1200" />
 </template>
 <script setup>
 import BMap from "@/components/Map.vue";

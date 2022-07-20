@@ -40,6 +40,9 @@ provide("headerActive", headerActive);
 .animate__delay-1-5 {
   animation-delay: 1.5s !important;
 }
+.animate__delay-1-6 {
+  animation-delay: 2s !important;
+}
 
 .animate__delay-2 {
   animation-delay: 2s !important;
@@ -58,6 +61,9 @@ provide("headerActive", headerActive);
 }
 .animate__delay-2-5 {
   animation-delay: 2.5s !important;
+}
+.animate__delay-2-6 {
+  animation-delay: 3s !important;
 }
 
 .animate__delay-3 {

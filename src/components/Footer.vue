@@ -8,7 +8,7 @@
         <div class="top">
           <ul>
             <li v-for="(item, index) in links" :key="index">
-              <a>{{ item.text }}</a>
+              <a @click="$router.push(item.link)">{{ item.text }}</a>
             </li>
           </ul>
         </div>
@@ -30,23 +30,23 @@ const links = ref([
   },
   {
     text: "解决方案",
-    link: "/",
+    link: "/plan",
   },
   {
     text: "企业服务",
-    link: "/",
+    link: "/servers",
   },
   {
     text: "战略伙伴",
-    link: "/",
+    link: "/partner",
   },
   {
     text: "关于我们",
-    link: "/",
+    link: "/about",
   },
   {
     text: "联系我们",
-    link: "/",
+    link: "/call",
   },
 ]);
 </script>
@@ -65,8 +65,8 @@ const links = ref([
     align-items: center;
     height: 100%;
     .col-l {
-      width: 200px;
-      height: 60px;
+      width: 210px;
+      height: 70px;
       img {
         width: 100%;
       }
