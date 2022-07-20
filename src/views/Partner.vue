@@ -46,7 +46,7 @@
         <img class="p-title animate__animated animate__fadeInDown" data--duration="3s" src="@/assets/par-7.png" alt="" srcset="" />
         <img class="p-more" src="@/assets/par-8.png" alt="" srcset="" />
       </div>
-      <user-footer style="position: initial !important" />
+      <user-footer />
     </template>
   </div>
 </template>

@@ -374,7 +374,7 @@ const onSlideChange = () => {
             color: #0cd7ff;
           }
           &.t4 {
-            right: 25px;
+            right: 65px;
             top: 132px;
             color: #22d9fe;
           }
