@@ -269,7 +269,7 @@ const onSlideChange = () => {
             line-height: 28px;
             font-size: 16px;
             &.t1 {
-              top: -44px;
+              top: -60px;
               left: 50%;
               transform: translateX(-50%);
             }
@@ -283,7 +283,7 @@ const onSlideChange = () => {
             }
             &.t4 {
               top: 400px;
-              left: -40px;
+              left: -77px;
             }
             &.t5 {
               top: 100px;
@@ -360,16 +360,16 @@ const onSlideChange = () => {
           line-height: 28px;
           &.t1 {
             left: 33px;
-            top: 91px;
+            top: 102px;
             color: #755ff9;
           }
           &.t2 {
-            left: 248px;
-            top: 186px;
+            left: 242px;
+            top: 195px;
             color: #4e72ff;
           }
           &.t3 {
-            top: 66px;
+            top: 60px;
             left: 440px;
             color: #0cd7ff;
           }
