@@ -12,6 +12,7 @@
                 <div class="fuwu-box">
                   <div class="box">
                     <img class="yuan animate__animated animate__zoomIn animate__delay-1-1" src="@/assets/fuwu-yuan.png" alt="" />
+                    <img class="yuan1 animate__animated animate__zoomIn animate__delay-1-1" src="@/assets/fuwu-yuan1.png" alt="" />
                     <img class="fuwu fuwu1 animate__animated animate__fadeInDown animate__delay-1-4" src="@/assets/fuwu1.png" alt="" srcset="" />
                     <img class="fuwu fuwu2 animate__animated animate__fadeInDown animate__delay-1-5" src="@/assets/fuwu2.png" alt="" srcset="" />
                     <img class="fuwu fuwu3 animate__animated animate__fadeInDown animate__delay-1-6" src="@/assets/fuwu3.png" alt="" srcset="" />
@@ -132,6 +133,13 @@ const onSlideChange = () => {
         .yuan {
           width: 100%;
           height: 100%;
+        }
+        .yuan1 {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          left: 0;
+          top: 0;
         }
         .fuwu {
           position: absolute;
