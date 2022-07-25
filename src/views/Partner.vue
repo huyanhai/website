@@ -11,14 +11,13 @@
                 <img class="s-title animate__animated animate__fadeInDown animate__delay-1s" src="@/assets/par-4.png" alt="" srcset="" />
                 <div class="fuwu-box">
                   <div class="box">
-                    <img class="yuan animate__animated animate__zoomIn animate__delay-1-1" src="@/assets/fuwu-yuan.png" alt="" />
-                    <img class="fuwu fuwu1 animate__animated animate__fadeInDown animate__delay-1-4" src="@/assets/fuwu1.png" alt="" srcset="" />
-                    <img class="fuwu fuwu2 animate__animated animate__fadeInDown animate__delay-1-5" src="@/assets/fuwu2.png" alt="" srcset="" />
-                    <img class="fuwu fuwu3 animate__animated animate__fadeInDown animate__delay-1-6" src="@/assets/fuwu3.png" alt="" srcset="" />
-                    <img class="fuwu fuwu4 animate__animated animate__fadeInDown animate__delay-1-1" src="@/assets/fuwu6.png" alt="" srcset="" />
-                    <img class="fuwu fuwu5 animate__animated animate__fadeInDown animate__delay-1-2" src="@/assets/fuwu5.png" alt="" srcset="" />
-                    <img class="fuwu fuwu6 animate__animated animate__fadeInDown animate__delay-1-3" src="@/assets/fuwu4.png" alt="" srcset="" />
+                    <div class="item" v-for="(item, index) in lines" :key="index">
+                      <img class="line" :src="item.img" alt="" :class="`animate__delay-1-${index + 1}`" />
+                      <p class="num animate__animated animate__fadeIn" :class="`animate__delay-1-${index + 1}`">{{ item.num }}</p>
+                      <p class="name animate__animated animate__fadeIn" :class="`animate__delay-1-${index + 1}`">{{ item.name }}</p>
+                    </div>
                   </div>
+                  <div class="lines-bg animate__animated animate__fadeIn animate__delay-1s"></div>
                 </div>
               </div>
             </div>
@@ -68,11 +67,52 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import { useWindowSize } from "@vueuse/core";
+
+import zz1 from "@/assets/zz1.png";
+import zz2 from "@/assets/zz2.png";
+import zz3 from "@/assets/zz3.png";
+import zz4 from "@/assets/zz4.png";
+import zz5 from "@/assets/zz5.png";
+import zz6 from "@/assets/zz6.png";
+
 const { width, height } = useWindowSize();
 
 const swiperDom = ref({});
 const swiperIndex = ref(0);
 const headerActive = inject("headerActive");
+
+const lines = ref([
+  {
+    img: zz1,
+    num: "5066家",
+    name: "高新技术企业",
+  },
+  {
+    img: zz2,
+    num: "2365家",
+    name: "专精特新",
+  },
+  {
+    img: zz3,
+    num: "38031家",
+    name: "科技型企业",
+  },
+  {
+    img: zz4,
+    num: "118家",
+    name: "小巨人",
+  },
+  {
+    img: zz5,
+    num: "1014家",
+    name: "企业技术中心",
+  },
+  {
+    img: zz6,
+    num: "179家",
+    name: "新型研发机构",
+  },
+]);
 
 const load = (e) => {
   swiperDom.value = e;
@@ -90,6 +130,16 @@ const onSlideChange = () => {
 </script>
 
 <style lang="scss" scoped>
+@keyframes row {
+  0% {
+    transform: scaleY(0);
+    transform-origin: center bottom;
+  }
+  100% {
+    transform: scaleY(1);
+    transform-origin: center bottom;
+  }
+}
 .partner {
   height: 100%;
   position: relative;
@@ -119,47 +169,95 @@ const onSlideChange = () => {
     background-size: auto 400px;
     height: 100%;
     .fuwu-box {
-      width: 314px;
+      width: 989px;
       height: 314px;
       position: absolute;
-      top: 35%;
+      top: 28%;
       left: 50%;
       transform: translateX(-50%);
+      .lines-bg {
+        display: block;
+        position: absolute;
+        width: 989px;
+        height: 39px;
+        background: url("@/assets/jiange.png") no-repeat;
+        background-size: cover;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -20px;
+        z-index: 1;
+      }
       .box {
         position: relative;
-        width: 100%;
         height: 100%;
-        .yuan {
-          width: 100%;
-          height: 100%;
-        }
-        .fuwu {
-          position: absolute;
-          width: 311px;
-          height: 42px;
-          &.fuwu1 {
-            left: -286px;
-            top: 5px;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        width: 80%;
+        align-items: flex-end;
+
+        .item {
+          width: 54px;
+          position: relative;
+          z-index: 2;
+          .line {
+            width: 100%;
+            animation: row 0.5s linear forwards;
+            // position: absolute;
+            display: block;
+            bottom: 80px;
+            height: 100%;
+            transform: scaleY(0);
+            transform-origin: center bottom;
           }
-          &.fuwu2 {
-            left: -334px;
-            top: 117px;
+          &:nth-child(1) {
+            height: 232px;
+            .line {
+            }
           }
-          &.fuwu3 {
-            left: -292px;
-            top: 230px;
+          &:nth-child(2) {
+            height: 164px;
+            .line {
+            }
           }
-          &.fuwu4 {
-            right: -283px;
-            top: 5px;
+          &:nth-child(3) {
+            height: 288px;
+            .line {
+            }
           }
-          &.fuwu5 {
-            right: -334px;
-            top: 117px;
+          &:nth-child(4) {
+            height: 44px;
+            .line {
+            }
           }
-          &.fuwu6 {
-            right: -283px;
-            top: 230px;
+          &:nth-child(5) {
+            height: 114px;
+            .line {
+            }
+          }
+          &:nth-child(6) {
+            height: 74px;
+            .line {
+            }
+          }
+          .num {
+            font-size: 16px;
+            color: #fff;
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            word-break: keep-all;
+            display: block;
+          }
+          .name {
+            font-size: 18px;
+            color: #ffffff;
+            word-break: keep-all;
+            position: absolute;
+            bottom: -55px;
+            left: 50%;
+            transform: translateX(-50%);
           }
         }
       }
