@@ -14,7 +14,7 @@
         </div>
         <div class="bottom">
           <span>电话：023-6084 9878 </span>
-          <span>地址：中国进出口银行(重庆分行)8楼</span>
+          <span>地址：重庆市两江新区黄山大道中段7号中国进出口银行(重庆分行)8楼</span>
         </div>
       </div>
     </div>
