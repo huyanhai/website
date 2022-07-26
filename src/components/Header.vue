@@ -179,7 +179,7 @@ watch(active, (val) => {
   }
   .main {
     margin: 0 auto;
-    width: 1000px;
+    width: 1100px;
     display: flex;
     justify-content: space-between;
     align-items: center;

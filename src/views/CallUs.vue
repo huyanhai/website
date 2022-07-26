@@ -4,8 +4,8 @@
       <div class="more-info">
         <img class="title animate__animated animate__fadeInDown" src="@/assets/call-title.png" alt="" />
         <div class="text-box animate__animated animate__fadeInDown animate__delay-1">
-          <p class="tell">联系电话：023 6084 9878</p>
-          <p class="address">地址：重庆市 渝北区 黄山大道中段7号（中国进出口银行8楼）</p>
+          <p class="tell">联系电话：023-6084 9878</p>
+          <p class="address">地址：重庆市两江新区黄山大道中段7号中国进出口银行(重庆分行)8楼</p>
           <button class="btn" @click="toggle" v-if="width > 1200"></button>
         </div>
         <b-map v-if="width < 1200" />
