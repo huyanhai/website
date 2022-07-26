@@ -281,7 +281,7 @@ const onSlideChange = () => {
       .s-title {
         position: absolute;
         left: 50%;
-        width: 279px;
+        width: 296px;
         height: 54px;
         top: 14%;
         margin-left: -138px;
