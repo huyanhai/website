@@ -1,0 +1,56 @@
+{
+    "name": "website",
+    "version": "0.0.1",
+    "packageManager": "pnpm@7.1.0",
+    "description": "",
+    "main": "index.js",
+    "workspaces": [
+        "packages/*"
+    ],
+    "scripts": {
+        "prepare": "husky install",
+        "rm": "rm -rf node_modules **/*/node_modules",
+        "lint": "Diff=$(git diff --diff-filter=d --cached --name-only -- '*.js' '*.ts' '*.tsx' '*.vue') && eslint --fix $Diff",
+        "gen": "bash scripts/gen-pkg.sh",
+        "clean:dist": "pnpm run -r --parallel clean:dist",
+        "build": "pnpm run -r --parallel build",
+        "pkg": "bash scripts/run-pkg.sh"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@commitlint/cli": "^18.6.0",
+        "@commitlint/config-conventional": "^18.6.0",
+        "@types/node": "^20.11.16",
+        "autoprefixer": "^10.4.20",
+        "eslint": "^9.9.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-prettier": "^5.2.1",
+        "globals": "^15.9.0",
+        "husky": "^9.0.10",
+        "lint-staged": "^15.2.2",
+        "postcss": "^8.4.34",
+        "prettier": "^3.2.5",
+        "sass": "^1.70.0",
+        "stylelint": "^16.2.1",
+        "stylelint-config-standard": "^36.0.0",
+        "tailwindcss": "^3.4.1",
+        "typescript": "^5.3.3",
+        "typescript-eslint": "^8.15.0"
+    },
+    "dependencies": {
+        "dayjs": "^1.11.10",
+        "nprogress": "^0.2.0",
+        "ant-design-vue": "^4.2.6",
+        "@ant-design/icons-vue": "^7.0.1"
+    },
+    "lint-staged": {
+        "*.{less,sass}": [
+            "stylelint --config  ./.stylelintrc --fix"
+        ],
+        "*.{ts,js,tsx}": [
+            "npm run lint",
+            "prettier --write"
+        ]
+    }
+}

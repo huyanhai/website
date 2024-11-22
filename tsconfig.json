@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@website/*": [
+        "packages/*"
+      ]
+    }
+  },
+  "include": [
+    "packages",
+    "typings"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/dist",
+    "**/__tests__/**/*",
+    "**/test/**",
+    "**/tests/**"
+  ],
+  "extends": "./tsconfig.options.json"
+}
