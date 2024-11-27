@@ -39,10 +39,11 @@
         "typescript-eslint": "^8.15.0"
     },
     "dependencies": {
-        "dayjs": "^1.11.10",
-        "nprogress": "^0.2.0",
+        "@ant-design/icons-vue": "^7.0.1",
+        "@base/solana": "workspace:^",
         "ant-design-vue": "^4.2.6",
-        "@ant-design/icons-vue": "^7.0.1"
+        "dayjs": "^1.11.10",
+        "nprogress": "^0.2.0"
     },
     "lint-staged": {
         "*.{less,sass}": [

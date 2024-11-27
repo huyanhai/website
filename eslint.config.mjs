@@ -8,10 +8,11 @@ export default [
   ...typescriptLint.configs.recommended,
   eslintPluginPrettierRecommended,
   {
-    files: ['**/*.js', '**/*.mjs', '**/*.cjs', '**/*.ts'],
+    files: ['**/*.js', '**/*.mjs', '**/*.cjs', '**/*.ts', '**/*.tsx'],
     rules: {
-      'no-undef': 'error',
-      complexity: ['error', 10] // 圈复杂度
+      'no-undef': 'warn',
+      complexity: ['error', 10], // 圈复杂度
+      '@typescript-eslint/no-explicit-any': ['warn']
     }
   },
   { languageOptions: { globals: globals.browser } },

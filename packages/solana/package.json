@@ -1,11 +1,13 @@
 {
-  "name": "@base/demo",
+  "name": "@base/solana",
   "main": "index.ts",
   "author": "",
   "license": "ISC",
   "scripts": {
     "test": "echo 'success'",
     "clean:dist": "rm -rf dist"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.95.5"
   }
 }
-
