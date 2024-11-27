@@ -10,7 +10,7 @@ export default [
   {
     files: ['**/*.js', '**/*.mjs', '**/*.cjs', '**/*.ts', '**/*.tsx'],
     rules: {
-      'no-undef': 'warn',
+      'no-undef': 'error',
       complexity: ['error', 10], // 圈复杂度
       '@typescript-eslint/no-explicit-any': ['warn']
     }
