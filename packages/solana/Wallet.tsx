@@ -1,24 +1,36 @@
 'use client';
-import { AnchorProvider } from '@project-serum/anchor';
+import { AnchorProvider, Program, BN } from '@project-serum/anchor';
 import { useAnchorWallet, useWallet } from '@solana/wallet-adapter-react';
 
-import { Connection, clusterApiUrl } from '@solana/web3.js';
+import {
+  Connection,
+  Keypair,
+  clusterApiUrl,
+  SystemProgram
+} from '@solana/web3.js';
 
 import React, { useMemo } from 'react';
+
+import idl from './idl.json';
 
 const WalletCom = () => {
   const wallet = useAnchorWallet();
   const { connected, connect, disconnect, select, wallets, publicKey } =
     useWallet();
 
+  const connection = new Connection(clusterApiUrl('devnet'));
+
   const connectWallet = async () => {
-    await select(InstalledWallet.adapter.name);
-    await connect();
+    try {
+      await select(InstalledWallet.adapter.name);
+      await connect();
+    } catch (error) {
+      console.log('链接失败', error);
+    }
   };
 
   const getProvider = () => {
     if (!wallet) return null;
-    const connection = new Connection(clusterApiUrl('devnet'));
 
     return new AnchorProvider(
       connection,
@@ -27,28 +39,40 @@ const WalletCom = () => {
     );
   };
 
-  //   const program = new Program(
-  //     idl as any,
-  //     '67LWCuERY8GKJfahid4fonb3G39HkAerbnSP6xDkd6QF',
-  //     getProvider()!
-  //   );
+  const provider = getProvider()!;
 
-  //   const test = async () => {
-  //     const data = await program.methods.initialize(
-  //       {
-  //         accounts: {
-  //           new_account: Keypair.generate(),
-  //           signer: wallet?.publicKey,
-  //           system_program: SystemProgram.programId
-  //         }
-  //       },
-  //       new BN(42)
-  //     ).rpc();
+  const getMsg = () => {
+    if (provider) {
+      const newAccountKp = new Keypair();
+      const program = new Program(
+        idl as any,
+        '67LWCuERY8GKJfahid4fonb3G39HkAerbnSP6xDkd6QF',
+        provider
+      );
 
-  //     console.log(data);
-  //   };
+      const test = async () => {
+        const txHash = await program.methods
+          .initialize(new BN(42))
+          .accounts({
+            newAccount: newAccountKp.publicKey,
+            signer: publicKey,
+            systemProgram: SystemProgram.programId
+          })
+          .signers([newAccountKp])
+          .rpc();
 
-  //   test();
+        await connection.sendEncodedTransaction(txHash);
+
+        // Fetch the created account
+        const newAccount = await program.account.newAccount.fetch(
+          newAccountKp.publicKey
+        );
+
+        console.log(newAccount);
+      };
+      test();
+    }
+  };
 
   const InstalledWallet = useMemo(() => {
     return wallets.filter((wallet) => wallet.readyState === 'Installed')[0];
@@ -62,6 +86,10 @@ const WalletCom = () => {
       </button>
       <button onClick={disconnect} style={{ background: 'red' }}>
         断开连接
+      </button>
+
+      <button onClick={getMsg} style={{ background: 'red' }}>
+        获取消息
       </button>
     </>
   );
