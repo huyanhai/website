@@ -5,14 +5,13 @@ import DotPattern from '@/components/ui/dot-pattern';
 // import HyperText from '@/components/ui/hyper-text';
 import { cn } from '@/lib/utils';
 
-import solana from '@base/solana';
+import WalletCom from '@base/solana';
 
 export default function Home() {
-  console.log(solana);
-
   return (
     <div className="bg-black p-48 h-screen">
-      <div className="mx-auto size-24 rounded-[2rem] border bg-white/10 p-3 shadow-2xl backdrop-blur-md dark:bg-black/10 lg:size-32">
+      <WalletCom />
+      {/* <div className="mx-auto size-24 rounded-[2rem] border bg-white/10 p-3 shadow-2xl backdrop-blur-md dark:bg-black/10 lg:size-32">
         text
       </div>
       <AnimatedGradientText>
@@ -30,7 +29,7 @@ export default function Home() {
         )}
       />
       <div className="h-screen"></div>
-      <div className="h-screen"></div>
+      <div className="h-screen"></div> */}
     </div>
   );
 }

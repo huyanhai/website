@@ -12,7 +12,8 @@ export default [
     rules: {
       'no-undef': 'error',
       complexity: ['error', 10], // 圈复杂度
-      '@typescript-eslint/no-explicit-any': ['warn']
+      '@typescript-eslint/no-explicit-any': ['warn'],
+      '@typescript-eslint/no-unused-vars': ['warn']
     }
   },
   { languageOptions: { globals: globals.browser } },
