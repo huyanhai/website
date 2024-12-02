@@ -5,11 +5,20 @@
     {
       "name": "initialize",
       "accounts": [
-        { "name": "newAccount", "isMut": true, "isSigner": true },
+        { "name": "newAccount", "isMut": true, "isSigner": false },
         { "name": "signer", "isMut": true, "isSigner": true },
         { "name": "systemProgram", "isMut": false, "isSigner": false }
       ],
       "args": [{ "name": "data", "type": "u64" }]
+    },
+    {
+      "name": "add",
+      "accounts": [
+        { "name": "newAccount", "isMut": true, "isSigner": false },
+        { "name": "signer", "isMut": true, "isSigner": true },
+        { "name": "systemProgram", "isMut": false, "isSigner": false }
+      ],
+      "args": []
     }
   ],
   "accounts": [
