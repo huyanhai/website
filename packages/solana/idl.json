@@ -3,30 +3,37 @@
   "name": "hello_anchor",
   "instructions": [
     {
-      "name": "initialize",
+      "name": "register",
       "accounts": [
-        { "name": "newAccount", "isMut": true, "isSigner": false },
-        { "name": "signer", "isMut": true, "isSigner": true },
+        { "name": "userInfo", "isMut": true, "isSigner": false },
+        { "name": "owner", "isMut": true, "isSigner": true },
         { "name": "systemProgram", "isMut": false, "isSigner": false }
       ],
-      "args": [{ "name": "data", "type": "u64" }]
+      "args": [
+        { "name": "name", "type": "string" },
+        { "name": "age", "type": "u8" }
+      ]
     },
     {
-      "name": "add",
+      "name": "updateAge",
       "accounts": [
-        { "name": "newAccount", "isMut": true, "isSigner": false },
-        { "name": "signer", "isMut": true, "isSigner": true },
+        { "name": "userInfo", "isMut": true, "isSigner": false },
+        { "name": "owner", "isMut": true, "isSigner": true },
         { "name": "systemProgram", "isMut": false, "isSigner": false }
       ],
-      "args": []
+      "args": [{ "name": "age", "type": "u8" }]
     }
   ],
   "accounts": [
     {
-      "name": "NewAccount",
+      "name": "UserInfo",
       "type": {
         "kind": "struct",
-        "fields": [{ "name": "data", "type": "u64" }]
+        "fields": [
+          { "name": "owner", "type": "publicKey" },
+          { "name": "name", "type": "string" },
+          { "name": "age", "type": "u8" }
+        ]
       }
     }
   ]

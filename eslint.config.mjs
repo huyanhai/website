@@ -13,7 +13,8 @@ export default [
       'no-undef': 'error',
       complexity: ['error', 10], // 圈复杂度
       '@typescript-eslint/no-explicit-any': ['warn'],
-      '@typescript-eslint/no-unused-vars': ['warn']
+      '@typescript-eslint/no-unused-vars': ['warn'],
+      '@typescript-eslint/no-non-null-asserted-optional-chain': ['warn']
     }
   },
   { languageOptions: { globals: globals.browser } },
