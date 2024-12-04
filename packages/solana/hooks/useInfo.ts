@@ -8,7 +8,7 @@ import {
   useConnection,
   useWallet
 } from '@solana/wallet-adapter-react';
-import { APP_ID } from '../constants';
+import { APP_ID } from '../constants/env';
 
 export default () => {
   const wallet = useAnchorWallet();

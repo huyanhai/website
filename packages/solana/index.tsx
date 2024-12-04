@@ -8,12 +8,12 @@ import '@solana/wallet-adapter-react-ui/styles.css';
 
 import React from 'react';
 import Wallet from './Wallet';
-import { clusterApiUrl } from '@solana/web3.js';
+import { APP_URL } from './constants/env';
 
 const App = () => {
   return (
     <div>
-      <ConnectionProvider endpoint={clusterApiUrl('devnet')}>
+      <ConnectionProvider endpoint={APP_URL}>
         <WalletProvider wallets={[new PhantomWalletAdapter()]} autoConnect>
           <Wallet />
         </WalletProvider>
