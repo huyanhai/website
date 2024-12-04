@@ -24,13 +24,12 @@ export default () => {
   };
 
   const updateAge = async (age: number) => {
-    const pd = generatePd([publicKey?.toBuffer()!, textToBuffer('_age')]);
-    console.log(pd.toString());
+    const pd = generatePd([publicKey?.toBuffer()!]);
 
     return program.methods
       .updateAge(age)
       .accounts({
-        userInfo: pd,
+        userInfo: addressPd!,
         signer: publicKey,
         systemProgram: SystemProgram.programId
       })

@@ -14,12 +14,14 @@ const WalletCom = () => {
   const { balance, transaction } = useBalance();
   const { initInfo, getAccount, updateAge } = useApi();
 
+  const [age, setAge] = useState(0);
+
   const register = async () => {
     await initInfo('hyh5', new BN(30));
   };
 
   const update = async () => {
-    await updateAge(new BN(30));
+    await updateAge(new BN(age));
     getInfo();
   };
 
@@ -64,9 +66,16 @@ const WalletCom = () => {
           注册用户信息
         </button>
       ) : (
-        <button onClick={update} style={{ background: 'yellow' }}>
-          更新年龄
-        </button>
+        <>
+          <input
+            value={age}
+            onInput={(e) => setAge(e.target.value)}
+            type="number"
+          />
+          <button onClick={update} style={{ background: 'yellow' }}>
+            更新年龄
+          </button>
+        </>
       )}
 
       {/* <button onClick={add} style={{ background: 'yellow' }}>
