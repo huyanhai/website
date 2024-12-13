@@ -23,9 +23,8 @@ export default () => {
       .rpc();
   };
 
+  // 更新年龄数据
   const updateAge = async (age: number) => {
-    const pd = generatePd([publicKey?.toBuffer()!]);
-
     return program.methods
       .updateAge(age)
       .accounts({
@@ -36,9 +35,23 @@ export default () => {
       .rpc();
   };
 
+  // 更新分数
+  const updateScore = async (score: number, time: number) => {
+    const pd = generatePd([textToBuffer('score')]);
+    return program.methods
+      .updateScore(score, time)
+      .accounts({
+        scoreInfo: pd,
+        signer: publicKey,
+        systemProgram: SystemProgram.programId
+      })
+      .rpc();
+  };
+
   return {
     initInfo,
     getAccount,
-    updateAge
+    updateAge,
+    updateScore
   };
 };
